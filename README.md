@@ -1,6 +1,6 @@
 # 🐚 Agentic Terminal Shell Wrapper
 
-> **Elevator Pitch:** Stop choosing between a static command line and isolated AI tools. This lightweight Linux shell wrapper seamlessly blends your native Bash ecosystem with local, autonomous Ollama agent teams—giving you secure, context-aware AI automation directly inside your terminal, bounded by real system permission engines you control.
+> Stop choosing between a static command line and isolated AI tools. This lightweight Linux shell wrapper seamlessly blends your native Bash ecosystem with local, autonomous Ollama agent teams—giving you secure, context-aware AI automation directly inside your terminal, bounded by real system permission engines you control.
 
 ---
 
