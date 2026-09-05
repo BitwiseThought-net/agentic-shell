@@ -236,4 +236,22 @@ def main():
                     print(f"❌ Agent @{target_agent} not found.")
                 continue
 
+            if cmd.startswith("@"):
+                agent_name = cmd[1:].lower()
+                if agent_name in AI_AGENTS:
+                    AI_AGENTS[agent_name].activate(" ".join(args))
+                else:
+                    print(f"❌ Agent @{agent_name} not found.")
+                continue
+
+            # Native Bash Fall-Through Engine: anything not explicitly
+            # handled above is forwarded directly to the underlying shell.
+            try:
+                subprocess.run(user_input, shell=True)
+            except Exception as e:
+                print(f"Error: {e}", file=sys.stderr)
+
+        except (EOFError, KeyboardInterrupt):
+            print("\nExiting custom shell.")
+            break
 
