@@ -33,7 +33,7 @@ The workspace is cleanly decoupled into discrete configuration and modular execu
 ## ⚙️ Installation & Setup
 
 ### 1. Prerequisites
-Ensure you have a local instance of [Ollama](https://ollama.com) running and the required model pulled to your machine:
+Ensure you have a local Ollama [instance]([https://ollama.com](https://github.com/BitwiseThought-net/the-architect)) running and the required model pulled to your machine:
 ```bash
 ollama serve
 ollama pull llama3
