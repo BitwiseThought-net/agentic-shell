@@ -1,11 +1,6 @@
-<!--
-  Replace OWNER below with the GitHub org/user this repo is actually
-  hosted under (e.g. github.com/OWNER/agentic-shell) so the badges and
-  links resolve correctly.
--->
-[![Tests](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml/badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
-[![Coverage](https://raw.githubusercontent.com/OWNER/agentic-shell/main/badges/coverage-badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
-[![Tests Passing](https://raw.githubusercontent.com/OWNER/agentic-shell/main/badges/tests-badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
+[![Tests](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml/badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
+[![Coverage](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/coverage-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
+[![Tests Passing](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/tests-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
 
 # 🐚 Agentic Terminal Shell Wrapper
 
