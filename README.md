@@ -1,3 +1,12 @@
+<!--
+  Replace OWNER below with the GitHub org/user this repo is actually
+  hosted under (e.g. github.com/OWNER/agentic-shell) so the badges and
+  links resolve correctly.
+-->
+[![Tests](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml/badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
+[![Coverage](https://raw.githubusercontent.com/OWNER/agentic-shell/main/badges/coverage-badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
+[![Tests Passing](https://raw.githubusercontent.com/OWNER/agentic-shell/main/badges/tests-badge.svg)](https://github.com/OWNER/agentic-shell/actions/workflows/tests.yml)
+
 # 🐚 Agentic Terminal Shell Wrapper
 
 > Stop choosing between a static command line and isolated AI tools. This lightweight Linux shell wrapper seamlessly blends your native Bash ecosystem with local, autonomous Ollama agent teams-giving you secure, context-aware AI automation directly inside your terminal, bounded by real system permission engines you control.
@@ -23,6 +32,8 @@ The workspace is cleanly decoupled into discrete configuration and modular execu
 ├── agents.json           # Agent persona declarations and sandbox boundaries
 ├── shell.py              # Main terminal loop, routing core, and permission logic
 ├── help_manager.py       # Dynamic, colorized documentation generator
+├── tests/                # Pytest suite covering shell.py and help_manager.py
+├── badges/               # Auto-generated coverage/test badges (see Testing below)
 └── workspace/            # Automatic directory containing isolated agent sandboxes
     ├── repo/             # Git Guru target execution workspace
     └── logs/             # Sys Admin target execution workspace
@@ -33,7 +44,7 @@ The workspace is cleanly decoupled into discrete configuration and modular execu
 ## ⚙️ Installation & Setup
 
 ### 1. Prerequisites
-Ensure you have a local Ollama [instance]([https://ollama.com](https://github.com/BitwiseThought-net/the-architect)) running and the required model pulled to your machine:
+Ensure you have a local instance of [Ollama](https://ollama.com) running and the required model pulled to your machine:
 ```bash
 ollama serve
 ollama pull llama3
@@ -118,3 +129,32 @@ The shell implements custom commands to allow you to configure system interactio
 
 * **Path Traversal Blocker:** If an LLM response attempts to breach containment using parent directory notation (`..`) or points to absolute critical systemic root systems (like `/etc`, `/var`, `/home`), the wrapper halts execution at the wrapper engine layer and registers a `Path Violation Blocked` protection prompt.
 * **Whitelisted Command Enforcement:** Even if given `"all"` tool privileges, commands run strictly through a `shutil.which` verification wrapper check. If an agent tries to invoke a non-existent or restricted script environment command, it returns a safe exception trace rather than freezing terminal background pipelines.
+
+---
+
+## 🧪 Testing
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
+
+This runs the full suite in `tests/` against `shell.py` and `help_manager.py`.
+To reproduce the coverage report and badges shown above locally:
+
+```bash
+pytest -q \
+  --cov=shell \
+  --cov=help_manager \
+  --cov-report=term-missing \
+  --cov-report=xml:coverage.xml \
+  --junitxml=pytest-results.xml
+
+mkdir -p badges
+genbadge coverage -i coverage.xml -o badges/coverage-badge.svg --local
+genbadge tests -i pytest-results.xml -o badges/tests-badge.svg --local
+```
+
+On every pull request, `.github/workflows/tests.yml` runs this same suite,
+posts a coverage summary as a PR comment, and commits the refreshed
+`badges/*.svg` files back to the branch.
