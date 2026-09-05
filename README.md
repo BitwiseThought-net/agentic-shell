@@ -1,6 +1,6 @@
-[![Tests](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml/badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
-[![Coverage](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/coverage-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
-[![Tests Passing](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/tests-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests.yml)
+[![Tests](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests-python.yml/badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests-python.yml)
+[![Coverage](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/coverage-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests-python.yml)
+[![Tests Passing](https://raw.githubusercontent.com/BitwiseThought-net/agentic-shell/main/badges/tests-badge.svg)](https://github.com/BitwiseThought-net/agentic-shell/actions/workflows/tests-python.yml)
 
 # 🐚 Agentic Terminal Shell Wrapper
 
@@ -150,6 +150,6 @@ genbadge coverage -i coverage.xml -o badges/coverage-badge.svg --local
 genbadge tests -i pytest-results.xml -o badges/tests-badge.svg --local
 ```
 
-On every pull request, `.github/workflows/tests.yml` runs this same suite,
+On every pull request, `.github/workflows/tests-python.yml` runs this same suite,
 posts a coverage summary as a PR comment, and commits the refreshed
 `badges/*.svg` files back to the branch.
